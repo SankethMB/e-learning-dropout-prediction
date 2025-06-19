@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-learning Dropout Predictor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>E-learning Dropout Prediction</h1>
+
+        
+        <form method="POST" action="/predict">
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <label>Nationality:</label>
+            <select name="NationalITy" required>
+                {% for val in ['Jordan','USA','KW','KuwaIT','Tunis','Morocco','Iran','Syria'] %}
+                <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Place of Birth:</label>
+            <select name="PlaceofBirth" required>
+                {% for val in ['Jordan','USA','KW','KuwaIT','Tunis','Morocco','Iran','Syria'] %}
+                <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Stage:</label>
+            <select name="StageID" required>
+                <option value="lowerlevel">Lower Level</option>
+                <option value="MiddleSchool">Middle School</option>
+                <option value="HighSchool">High School</option>
+            </select>
+
+            <label>Grade:</label>
+            <select name="GradeID" required>
+                {% for val in ['G-02','G-04','G-05','G-06','G-07','G-08','G-09','G-10','G-11','G-12'] %}
+                <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Section:</label>
+            <select name="SectionID" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <label>Topic:</label>
+            <select name="Topic" required>
+                {% for val in ['French', 'Science', 'Math', 'English', 'History', 'Biology', 'Chemistry', 'Quran'] %}
+                <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Semester:</label>
+            <select name="Semester" required>
+                <option value="S">Summer</option>
+                <option value="F">Fall</option>
+            </select>
+
+            <label>Relation:</label>
+            <select name="Relation" required>
+                <option value="Mum">Mother</option>
+                <option value="Father">Father</option>
+            </select>
+
+            <label>Parent Answered Survey:</label>
+            <select name="ParentAnsweringSurvey" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>Parent School Satisfaction:</label>
+            <select name="ParentschoolSatisfaction" required>
+                <option value="Good">Good</option>
+                <option value="Bad">Bad</option>
+            </select>
+
+            <label>Student Absence Days:</label>
+            <select name="StudentAbsenceDays" required>
+                <option value="Under-7">Under-7</option>
+                <option value="Above-7">Above-7</option>
+            </select>
+
+            <label>Raised Hands:</label>
+            <input type="number" name="raisedhands" min="0" max="100" required>
+
+            <label>Visited Resources:</label>
+            <input type="number" name="VisITedResources" min="0" max="100" required>
+
+            <label>Announcements View:</label>
+            <input type="number" name="AnnouncementsView" min="0" max="100" required>
+
+            <label>Discussion:</label>
+            <input type="number" name="Discussion" min="0" max="100" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">🎯 Prediction: {{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
