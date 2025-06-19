@@ -3,3 +3,11 @@ This project predicts whether a student is likely to drop out or continue based 
 
 
 
+✅ Prediction: Not Likely to Dropout
+![Not Dropout](screenshots/predict_not_dropout.jpeg)
+
+⚠️ Prediction: Likely to Dropout
+![Likely Dropout](screenshots/predict_likely_dropout.jpeg)
+
+
+
